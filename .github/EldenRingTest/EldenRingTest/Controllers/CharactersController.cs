@@ -24,16 +24,16 @@ namespace EldenRingTutorial.Controllers
 
         // GET: api/Characters
         [HttpGet]
-        public ActionResult<IEnumerable<Character>> GetCharacters()
+        public async Task<ActionResult<IEnumerable<Character>>> GetCharacters()
         {
-            return _characterRepository.GetAll();
+            return await _characterRepository.GetAllAsync();
         }
 
         // GET: api/Characters/5
         [HttpGet("{id}")]
-        public ActionResult<Character>? GetCharacter(int id)
+        public async Task<ActionResult<Character>>? GetCharacterAsync(int id)
         {
-            var character = _characterRepository.GetById(id);
+            var character = await _characterRepository.GetByIdAsync(id);
 
             if (character == null)
             {
@@ -46,14 +46,14 @@ namespace EldenRingTutorial.Controllers
         // PUT: api/Characters/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public ActionResult<Character> PutCharacter(int id, Character character)
+        public async Task<ActionResult<Character>> PutCharacter(int id, Character character)
         {
             if (id != character.Id)
             {
                 return BadRequest();
             }
 
-            character = _characterRepository.Update(character);
+            character = await _characterRepository.UpdateAsync(character);
 
             return Ok(character);
 
@@ -65,15 +65,15 @@ namespace EldenRingTutorial.Controllers
         public async Task<ActionResult<Character>> PostCharacter(Character character)
         {
 
-            character = _characterRepository.Add(character);
+            character = await _characterRepository.AddAsync(character);
             return Ok(character);
         }
 
         // DELETE: api/Characters/5
         [HttpDelete("{id}")]
-        public ActionResult DeleteCharacter(int id)
+        public async Task<ActionResult> DeleteCharacter(int id)
         {
-            _characterRepository.DeleteById(id);
+            await _characterRepository.DeleteAsync(id);
             return NoContent();
  
         }

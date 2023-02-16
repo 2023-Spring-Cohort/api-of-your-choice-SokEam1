@@ -1,12 +1,11 @@
 ﻿namespace EldenRingTutorial.Repositories.Interfaces
 {
-    public interface IRepository<TEntity>
-        where TEntity : class
+    public interface IRepository<TEntity> where TEntity : class
     {
-        List<TEntity>GetAll(); //Read
-        TEntity? GetById(int id); //Read
-        TEntity Add(TEntity entity); //Create
-        TEntity Update(TEntity entity); //Update
-        void DeleteById(int id); //Delete
+        Task<TEntity> AddAsync(TEntity entity);
+        Task DeleteAsync(int id);
+        Task<List<TEntity>> GetAllAsync();
+        Task<TEntity>? GetByIdAsync(int id);
+        Task<TEntity> UpdateAsync(TEntity entity);
     }
 }

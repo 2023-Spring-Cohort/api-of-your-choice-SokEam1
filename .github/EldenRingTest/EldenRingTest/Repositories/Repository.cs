@@ -4,10 +4,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EldenRingTutorial.Repositories
 
-    //Virtual = other classes that use the repository class can override these classes if they need to
+//Virtual = other classes that use the repository class can override these classes if they need to
 {
-    public abstract class Repository<TEntity> : IRepository<TEntity>
-        where TEntity : class
+    public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
     {
         protected readonly GameContext context;
         public Repository(GameContext dbcontext)
@@ -33,24 +32,24 @@ namespace EldenRingTutorial.Repositories
             }
         }
 
-        public virtual List<TEntity> GetAll()
+        public virtual async Task<List<TEntity>> GetAllAsync()
         {
-            return Context.Set<TEntity>().ToList();
+            return await Context.Set<TEntity>().ToListAsync();
         }
 
         public virtual async Task<TEntity>? GetByIdAsync(int id)
         {
-             TEntity? entity = await Context.Set<TEntity>()
-                                   .Where(w => EF.Property<int>(w, "Id") == id) //Told EF to look for Id, and it should be a INT... (Id is a key)
-                                   .FirstOrDefaultAsync(); //Lamba Expression
+            TEntity? entity = await Context.Set<TEntity>()
+                                  .Where(w => EF.Property<int>(w, "Id") == id) //Told EF to look for Id, and it should be a INT... (Id is a key)
+                                  .FirstOrDefaultAsync(); //Lamba Expression
             return entity;
         }
 
-        public virtual TEntity Update(TEntity entity)
+        public virtual async Task<TEntity> UpdateAsync(TEntity entity)
         {
-            Context.Set<TEntity>().Add(entity)
-                .State = EntityState.Modified;
-            Context.SaveChanges();
+            await Context.Set<TEntity>().AddAsync(entity);
+            Context.Entry<TEntity>(entity).State = EntityState.Modified;
+            await Context.SaveChangesAsync();
             return entity;
         }
     }
