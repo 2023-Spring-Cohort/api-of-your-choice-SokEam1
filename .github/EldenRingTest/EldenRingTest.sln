@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EldenRingTutorial", "EldenRingTest\EldenRingTutorial.csproj", "{9A0FE7C8-E3E6-4161-B15B-9B26D3C67F07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EldenRingTest", "EldenRingTest1\EldenRingTest.csproj", "{A08CF441-F47E-439F-8B10-B80D2A2FD315}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9A0FE7C8-E3E6-4161-B15B-9B26D3C67F07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0FE7C8-E3E6-4161-B15B-9B26D3C67F07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0FE7C8-E3E6-4161-B15B-9B26D3C67F07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0FE7C8-E3E6-4161-B15B-9B26D3C67F07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A08CF441-F47E-439F-8B10-B80D2A2FD315}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A08CF441-F47E-439F-8B10-B80D2A2FD315}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A08CF441-F47E-439F-8B10-B80D2A2FD315}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A08CF441-F47E-439F-8B10-B80D2A2FD315}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {333E03C6-640B-4E1B-99C3-9AA406E068FF}
+	EndGlobalSection
+EndGlobal
